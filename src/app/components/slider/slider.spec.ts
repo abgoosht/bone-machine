@@ -29,7 +29,7 @@ describe('Slider', () => {
 
   it('emits correct option when slider moves', () => {
     const emitted: number[] = [];
-    component.valueChange.subscribe((v: number) => emitted.push(v));
+    component.valueChange.subscribe((value: number) => emitted.push(value));
 
     const input = fixture.nativeElement.querySelector('input');
     input.value = '3';

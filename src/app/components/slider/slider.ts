@@ -16,7 +16,7 @@ export class Slider {
   }
 
   onSlide(event: Event): void {
-    const i = Number((event.target as HTMLInputElement).value);
-    this.valueChange.emit(this.options[i]);
+    const selectedIndex = Number((event.target as HTMLInputElement).value);
+    this.valueChange.emit(this.options[selectedIndex]);
   }
 }
