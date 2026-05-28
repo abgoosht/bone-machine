@@ -1,19 +1,23 @@
 <div class="flex flex-col min-h-screen bg-gray-950 text-white px-6 py-10 gap-10">
 
   <!-- Score selector -->
-  <section class="flex flex-col gap-3">
+  <section class="flex flex-col items-center gap-3 w-full">
     <h2 class="text-sm uppercase tracking-widest text-gray-400">Target Score</h2>
-    <div class="flex items-center justify-center h-12 bg-gray-800 rounded-xl text-gray-500">
-      dot/meter goes here
-    </div>
+    <bm-slider
+      [options]="scoreOptions"
+      [value]="targetScore()"
+      (valueChange)="targetScore.set($event)"
+    />
   </section>
 
   <!-- Team count selector -->
-  <section class="flex flex-col gap-3">
+  <section class="flex flex-col items-center gap-3 w-full">
     <h2 class="text-sm uppercase tracking-widest text-gray-400">Number of Players</h2>
-    <div class="flex items-center justify-center h-12 bg-gray-800 rounded-xl text-gray-500">
-      dot/meter goes here
-    </div>
+    <bm-slider
+      [options]="playerCountOptions"
+      [value]="playerCount()"
+      (valueChange)="playerCount.set($event)"
+    />
   </section>
 
   <!-- Team name fields -->
