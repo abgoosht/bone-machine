@@ -1,1 +1,17 @@
-<p>scorekeeping works!</p>
+@if (config(); as gameConfig) {
+  <div class="flex flex-col min-h-screen bg-gray-950 text-white p-6">
+    <p class="text-gray-400 text-sm text-center mb-6">First to {{ gameConfig.targetScore }} wins</p>
+    <div class="flex flex-col gap-4 flex-1">
+      @for (name of gameConfig.playerNames; track name) {
+        <div class="flex flex-col items-center flex-1 bg-gray-800 rounded-2xl p-4 gap-4">
+          <span class="font-bold text-lg">{{ name }}</span>
+          <span class="text-4xl font-bold tabular-nums">0</span>
+        </div>
+      }
+    </div>
+  </div>
+} @else {
+  <div class="flex items-center justify-center min-h-screen bg-gray-950 text-gray-400">
+    <p>No game config found. <a href="/" class="text-white underline">Go back</a></p>
+  </div>
+}

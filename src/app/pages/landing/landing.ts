@@ -1,6 +1,8 @@
 import { Component, signal, effect } from '@angular/core';
+import { Router } from '@angular/router';
 import { Slider } from '../../components/slider/slider';
 import { defaultPlayerNames } from './landing.constants';
+import { GameConfig } from '../../models/game-config';
 
 @Component({
   selector: 'bm-landing',
@@ -16,7 +18,7 @@ export class Landing {
   playerCount = signal(2);
   playerNames = signal([...defaultPlayerNames[2]]);
 
-  constructor() {
+  constructor(private router: Router) {
     effect(() => {
       this.playerNames.set([...defaultPlayerNames[this.playerCount()]]);
     });
@@ -29,5 +31,14 @@ export class Landing {
       updatedNames[index] = name;
       return updatedNames;
     });
+  }
+
+  startGame(): void {
+    const config: GameConfig = {
+      targetScore: this.targetScore(),
+      playerCount: this.playerCount(),
+      playerNames: this.playerNames().slice(0, this.playerCount()),
+    };
+    this.router.navigate(['/game'], { state: { config } });
   }
 }
