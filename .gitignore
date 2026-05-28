@@ -45,3 +45,5 @@ Thumbs.db
 
 # Claude
 CLAUDE.md
+.claude/settings.local.json
+.claude/STATUS.md
