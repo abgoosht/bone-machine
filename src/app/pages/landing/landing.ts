@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'bm-landing',
   imports: [],
   templateUrl: './landing.html',
   styleUrl: './landing.scss',
