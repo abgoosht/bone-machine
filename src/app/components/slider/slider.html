@@ -1,0 +1,18 @@
+<div class="flex flex-col items-center gap-4 w-full">
+  <span class="text-4xl font-bold tabular-nums">{{ value }}</span>
+  <div class="relative w-full">
+    <input
+      type="range"
+      class="bm-slider w-full relative z-10"
+      [min]="0"
+      [max]="options.length - 1"
+      [value]="index"
+      (input)="onSlide($event)"
+    />
+    <div class="flex justify-between px-[14px] mt-1 pointer-events-none">
+      @for (option of options; track option) {
+        <div class="w-0.5 h-2 bg-gray-600 rounded-full"></div>
+      }
+    </div>
+  </div>
+</div>
