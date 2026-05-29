@@ -37,7 +37,7 @@ export class Landing {
     const config: GameConfig = {
       targetScore: this.targetScore(),
       playerCount: this.playerCount(),
-      playerNames: this.playerNames().slice(0, this.playerCount()),
+      playerNames: this.playerNames().filter(name => name.trim().length > 0),
     };
     this.router.navigate(['/game'], { state: { config } });
   }
