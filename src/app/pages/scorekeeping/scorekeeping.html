@@ -12,12 +12,12 @@
           <span class="font-bold text-lg flex-1">{{ name }}</span>
           <button
             (click)="decrement($index)"
-            class="w-14 h-14 rounded-full bg-gray-700 text-2xl font-bold active:scale-95 transition-transform"
+            class="w-14 h-14 rounded-full bg-gray-700 text-2xl font-bold active:scale-95 transition-transform touch-manipulation"
           >−</button>
           <span class="text-4xl font-bold tabular-nums w-20 text-center">{{ scores()[$index] }}</span>
           <button
             (click)="increment($index)"
-            class="w-14 h-14 rounded-full bg-gray-700 text-2xl font-bold active:scale-95 transition-transform"
+            class="w-14 h-14 rounded-full bg-gray-700 text-2xl font-bold active:scale-95 transition-transform touch-manipulation"
           >+</button>
         </div>
       }
