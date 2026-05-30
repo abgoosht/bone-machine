@@ -38,7 +38,6 @@ export class Scorekeeping implements OnInit {
   }
 
   decrement(playerIndex: number): void {
-    if (this.winner() !== -1) return;
     this.scores.update(currentScores => {
       const updatedScores = [...currentScores];
       updatedScores[playerIndex] = Math.max(0, updatedScores[playerIndex] - 5);
