@@ -11,7 +11,7 @@ import { GameConfig } from '../../models/game-config';
   styleUrl: './landing.scss',
 })
 export class Landing {
-  readonly scoreOptions = [150, 200, 250, 300, 500];
+  readonly scoreOptions = [150, 200, 250];
   readonly playerCountOptions = [2, 3, 4];
 
   targetScore = signal(150);
