@@ -1,0 +1,59 @@
+<div class="flex items-center gap-2 flex-wrap justify-start">
+
+  @for (cluster of completeClusters; track cluster) {
+    <svg viewBox="0 0 100 100" class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+      <!-- Big center X -->
+      <line x1="10" y1="10" x2="90" y2="90" />
+      <line x1="90" y1="10" x2="10" y2="90" />
+      <!-- Top pocket X -->
+      <line x1="42" y1="10" x2="58" y2="26" /><line x1="58" y1="10" x2="42" y2="26" />
+      <!-- Right pocket X -->
+      <line x1="74" y1="42" x2="90" y2="58" /><line x1="90" y1="42" x2="74" y2="58" />
+      <!-- Bottom pocket X -->
+      <line x1="42" y1="74" x2="58" y2="90" /><line x1="58" y1="74" x2="42" y2="90" />
+      <!-- Left pocket X -->
+      <line x1="10" y1="42" x2="26" y2="58" /><line x1="26" y1="42" x2="10" y2="58" />
+    </svg>
+  }
+
+  @if (showPartialCluster) {
+    <svg viewBox="0 0 100 100" class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+
+      <!-- Big center X: full if partialTens >= 1, half if hasFive and partialTens === 0 -->
+      @if (partialTens >= 1) {
+        <line x1="10" y1="10" x2="90" y2="90" />
+        <line x1="90" y1="10" x2="10" y2="90" />
+      } @else if (hasFive) {
+        <line x1="10" y1="10" x2="90" y2="90" />
+      }
+
+      <!-- Top pocket: full X if partialTens >= 2, half if hasFive and partialTens === 1 -->
+      @if (partialTens >= 2) {
+        <line x1="42" y1="10" x2="58" y2="26" /><line x1="58" y1="10" x2="42" y2="26" />
+      } @else if (hasFive && partialTens === 1) {
+        <line x1="42" y1="10" x2="58" y2="26" />
+      }
+
+      <!-- Right pocket: full X if partialTens >= 3, half if hasFive and partialTens === 2 -->
+      @if (partialTens >= 3) {
+        <line x1="74" y1="42" x2="90" y2="58" /><line x1="90" y1="42" x2="74" y2="58" />
+      } @else if (hasFive && partialTens === 2) {
+        <line x1="74" y1="42" x2="90" y2="58" />
+      }
+
+      <!-- Bottom pocket: full X if partialTens >= 4, half if hasFive and partialTens === 3 -->
+      @if (partialTens >= 4) {
+        <line x1="42" y1="74" x2="58" y2="90" /><line x1="58" y1="74" x2="42" y2="90" />
+      } @else if (hasFive && partialTens === 3) {
+        <line x1="42" y1="74" x2="58" y2="90" />
+      }
+
+      <!-- Left pocket: half only -->
+      @if (hasFive && partialTens === 4) {
+        <line x1="10" y1="42" x2="26" y2="58" />
+      }
+
+    </svg>
+  }
+
+</div>
