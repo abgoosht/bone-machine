@@ -1,10 +1,11 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameConfig } from '../../models/game-config';
+import { ScoreNotation } from '../../components/score-notation/score-notation';
 
 @Component({
   selector: 'bm-scorekeeping',
-  imports: [],
+  imports: [ScoreNotation],
   templateUrl: './scorekeeping.html',
   styleUrl: './scorekeeping.scss',
 })
